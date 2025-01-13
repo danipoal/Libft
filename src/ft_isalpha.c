@@ -16,7 +16,7 @@
  * true—letters which are neither uppercase nor lowercase.
  */
 
-int	isalpha(int c)
+int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1);

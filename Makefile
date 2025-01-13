@@ -16,4 +16,13 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Limpiar si es necesario
+# Limpiar objetos, archivos .o
+.PHONY: clean
+clean:
+	rm -rf $(OBJS)
+
+# Limpiar todo
+.PHONY: fclean
+fclean: clean
+	rm -rf $(NAME)
+#

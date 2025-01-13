@@ -1,0 +1,25 @@
+NAME = test
+
+CC = cc
+
+FLAGS = -Wall -Wextra -Werror -I./../ -g
+
+SRC = test.c
+
+OBJ = $(SRC:.c=.o)
+
+all: $(NAME)
+
+%.o: %.c
+		$(CC) $(FLAGS) -c $< -o $@
+
+$(NAME): $(OBJ)
+		$(CC) -o $(NAME) $(OBJ) -L./../ -l:libft.a
+
+clean:
+		rm -f $(OBJ)
+
+fclean: clean
+		rm -f $(NAME)
+
+re: fclean all
