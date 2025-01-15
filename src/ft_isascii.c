@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 19:16:09 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/15 13:35:06 by danalvar         ###   ########.fr       */
+/*   Created: 2025/01/15 13:02:03 by danalvar          #+#    #+#             */
+/*   Updated: 2025/01/15 13:26:52 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
- * Finds if the letter is a number or a letter
- */
-
 #include "../libft.h"
 
-int	ft_isalnum(int c)
+/*
+ * Finds if the number is in the Ascii table, 7 bit variable
+ */
+
+int	ft_isascii(int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	return (0);
+	return (c >= 0 && c <= 127);
 }
