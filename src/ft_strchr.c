@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 13:33:09 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/15 14:00:40 by danalvar         ###   ########.fr       */
+/*   Created: 2025/01/15 17:01:58 by danalvar          #+#    #+#             */
+/*   Updated: 2025/01/15 18:04:05 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_isprint(int c)
+/*
+ * Returns  a  pointer to the first occurrence of the character c in the
+ * string s. If c is not found, return a pointer to the null byte at the
+ * end of s. Null char '\0' can be included in the search as c
+ *
+ * As we cast char *, the output should not be modified
+ */
+
+char	*ft_strchr(const char *s, int c)
 {
-	return (c >= ' ' && c <= '~');
+	while (*s != c && *s)
+		s++;
+	if (*s == c)
+		return ((char *) s);
+	return (NULL);
 }

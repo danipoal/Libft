@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 13:33:09 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/15 14:00:40 by danalvar         ###   ########.fr       */
+/*   Created: 2025/01/15 15:49:05 by danalvar          #+#    #+#             */
+/*   Updated: 2025/01/15 16:42:53 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_isprint(int c)
+/*
+ * If a lowercase letter inputs, convert to upper
+ */
+
+int	ft_toupper(int c)
 {
-	return (c >= ' ' && c <= '~');
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }

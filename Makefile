@@ -1,7 +1,9 @@
 NAME = libft.a
-SRCS = src/ft_isalpha.c src/ft_isdigit.c src/ft_isalnum.c
+FOLDER = src/
+SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+	ft_strlen.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(addprefix $(FOLDER), $(SRCS:.c=.o))
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -25,4 +27,6 @@ clean:
 .PHONY: fclean
 fclean: clean
 	rm -rf $(NAME)
-#
+# Limpiar todo y volverlo a compilar
+.PHONY: re
+re: fclean all

@@ -6,13 +6,15 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:49:13 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/15 13:18:52 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:17:55 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
+#include <stdlib.h>
 
 /*
  * Functions issomething() from ctype, not always return
@@ -24,7 +26,7 @@ int	check(int i1, int i2)
 	return ((i1 == i2) || (i1 > 0 && i2 > 0));
 }
 
-int	main(void)
+void	char_tests(void)
 {
 	int	i;
 
@@ -40,7 +42,51 @@ int	main(void)
 			printf("ft_isalnum failed in ascii %d\n", i);
 		if (!check(isascii(i), ft_isascii(i)))
 			printf("ft_isascii failed in ascii %d\n", i);
+		if (!check(isprint(i), ft_isprint(i)))
+			printf("ft_isprint failed in ascii %d\n", i);
+		if ((toupper(i) != ft_toupper(i)))
+			printf("ft_toupper failed in ascii %d\n", i);
+		if ((tolower(i) != ft_tolower(i)))
+			printf("ft_tolower failed in ascii %d\n", i);
 		i++;
 	}
+}
+
+void	strlen_test(void)
+{
+	char	strlen1[] = "Hoola q ";
+	char	strlen2[] = "Hol peps\n";
+	char	*strlen3 = NULL;
+
+	if (strlen(strlen1) != ft_strlen(strlen1))
+		printf("Error in len for %s\n", strlen1);
+	if (strlen(strlen2) != ft_strlen(strlen2))
+		printf("Error in len for %s\n", strlen2);
+	if (ft_strlen(strlen3))
+		printf("Error in len for NULL\n");
+}
+
+void	strchr_tests(void)
+{
+	int	let = 'a';
+	const char	strchr1[] = "Hol peps\n";
+	const char	strchr2[] = "oa";
+
+	if (strchr(strchr1, let) != ft_strchr(strchr1, let))
+		printf("Error in strchr for no coincidence (null)\n");
+	if (strchr(strchr2, let) != ft_strchr(strchr2, let))
+		printf("Error in strchr for coincidence\n");
+	if (strrchr(strchr1, let) != ft_strrchr(strchr1, let))
+		printf("Error in strrchr for no coincidence (null)\n");
+	if (strrchr(strchr2, let) != ft_strrchr(strchr2, let))
+		printf("Error in strrchr for coincidence\n");
+	
+}
+
+int	main(void)
+{
+	char_tests();
+	strlen_test();
+	strchr_tests();
 	return (0);
 }
