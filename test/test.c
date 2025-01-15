@@ -6,9 +6,11 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:49:13 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/15 18:17:55 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/15 20:13:27 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#define _DEFAULT_SOURCE
 
 #include "../libft.h"
 #include <stdio.h>
@@ -66,6 +68,9 @@ void	strlen_test(void)
 		printf("Error in len for NULL\n");
 }
 
+/*
+ * Tests for strchr(), strrchr(), strncmp()
+ */
 void	strchr_tests(void)
 {
 	int	let = 'a';
@@ -80,9 +85,22 @@ void	strchr_tests(void)
 		printf("Error in strrchr for no coincidence (null)\n");
 	if (strrchr(strchr2, let) != ft_strrchr(strchr2, let))
 		printf("Error in strrchr for coincidence\n");
-	
+	if (strncmp(strchr1, strchr2, 1) != ft_strncmp(strchr1, strchr2, 1))
+		printf("Error in strncmp comparation\n");
 }
+/*
+void	strcpy_tests(void)
+{
+	char dest[10];
+	char dest2[10];
+	const char src[] = "Hola que tal";
+	
+	if (strlcpy(dest, src, 10) != ft_strlcpy(dest, src, 10)
+		|| strcmp(dest, dest2))
+		printf("Error en srtlcpy, dest1: %s\tdest2: %s \n", dest, dest2);
 
+}
+*/
 int	main(void)
 {
 	char_tests();
