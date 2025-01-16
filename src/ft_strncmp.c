@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:32:45 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/15 19:19:54 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/16 19:53:58 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	unsigned char	*str2;
 
 	if (n == 0)
-		return (0);	
+		return (0);
 	str1 = (unsigned char *) s1;
 	str2 = (unsigned char *) s2;
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:49:13 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/15 20:13:27 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:37:17 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,30 @@ void	strlen_test(void)
 }
 
 /*
+ * Test unitario para ft_strlcpy. La funcion de C no es estandar por eso se
+ * Comprueba de manera manual a traves de lo que deveria de dar.
+ */
+
+void	strlcpy_unit_test(const char *src, size_t size)
+{
+	char	dest[size];
+	char	dest2[size];
+	int	isCorrect;
+
+	isCorrect = 1;
+	// Comprueba que devuelve el tamano de lo que intenta copiar
+	if (strlen(src) != ft_strlcpy(dest, src, size))
+		isCorrect = 0;
+	// TODO Comprueba que se haya copiado correctamente el string
+	if (!isCorrect)
+		printf("Error en srtlcpy size: %zu, dest1: %s\tdest2: %s \n", size, dest, dest2);
+}
+
+/*
  * Tests for strchr(), strrchr(), strncmp()
  */
-void	strchr_tests(void)
+
+void	str_tests(void)
 {
 	int	let = 'a';
 	const char	strchr1[] = "Hol peps\n";
@@ -87,24 +108,15 @@ void	strchr_tests(void)
 		printf("Error in strrchr for coincidence\n");
 	if (strncmp(strchr1, strchr2, 1) != ft_strncmp(strchr1, strchr2, 1))
 		printf("Error in strncmp comparation\n");
-}
-/*
-void	strcpy_tests(void)
-{
-	char dest[10];
-	char dest2[10];
-	const char src[] = "Hola que tal";
-	
-	if (strlcpy(dest, src, 10) != ft_strlcpy(dest, src, 10)
-		|| strcmp(dest, dest2))
-		printf("Error en srtlcpy, dest1: %s\tdest2: %s \n", dest, dest2);
+	strlcpy_unit_test("Hola que tal", 10);
 
 }
-*/
+
+
 int	main(void)
 {
 	char_tests();
 	strlen_test();
-	strchr_tests();
+	str_tests();
 	return (0);
 }
