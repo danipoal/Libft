@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:49:13 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/16 15:37:17 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/17 12:25:59 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,11 +112,65 @@ void	str_tests(void)
 
 }
 
+void	atoi_tests()
+{
+	char	str[17];
+
+	strcpy(str,"   -+--+32424f34");
+	if (atoi(str) != ft_atoi(str))
+		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
+	strcpy(str," -a");
+	if (atoi(str) != ft_atoi(str))
+		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
+	strcpy(str, "22");
+	if (atoi(str) != ft_atoi(str))
+		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
+	strcpy(str, "32525253");
+	if (atoi(str) != ft_atoi(str))
+		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
+	strcpy(str, "fd");
+	if (atoi(str) != ft_atoi(str))
+		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
+	strcpy(str, "");
+	if (atoi(str) != ft_atoi(str))
+		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
+	strcpy(str,"   34");
+	if (atoi(str) != ft_atoi(str))
+		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
+	strcpy(str,"---34");
+	if (atoi(str) != ft_atoi(str))
+		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
+}
+
+/*
+void	memset_unit_test(void * s, int c)
+{
+	// Comparar dos *stacks de memoria
+	
+
+}
+*/
+
+/*
+ * Tests for memchr(), memset()
+ */
+
+/*
+void	mem_tests(void)
+{
+	//memset_unit_test();
+
+
+
+}
+*/
 
 int	main(void)
 {
 	char_tests();
 	strlen_test();
 	str_tests();
+	//mem_tests();
+	atoi_tests();
 	return (0);
 }
