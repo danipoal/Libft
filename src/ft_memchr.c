@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:21:09 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/16 19:53:17 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/17 10:12:28 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,12 @@ void	*memchr(const void *s, int c, size_t n)
 {
 	size_t			i;
 	unsigned char	*str;
-	unsigned char	coincidence;
 
 	str = (unsigned char *) s;
-	coincidence = (unsigned char) c;
 	i = 0;
 	while (i < n)
 	{
-		if (str[i] == coincidence)
+		if (str[i] == c)
 			return ((void *) &str[i]);
 		i++;
 	}
