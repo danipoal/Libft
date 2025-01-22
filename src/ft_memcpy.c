@@ -20,7 +20,7 @@
  *
  */
 
-void	*memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*dst_ptr;
 	unsigned char	*src_ptr;

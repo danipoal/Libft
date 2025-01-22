@@ -1,6 +1,5 @@
 #include <stdlib.h>
-#include <stdio.h>
-#include <ctype.h>
+#include "../libft.h"
 
 int	wordLen(const char *str, char sep)
 {
@@ -24,7 +23,7 @@ int	countWords(const char* str, char sep)
 	currentWord = 0;
 	while (str[i] != '\0')
 	{
-		if(!currentWord && isprint(str[i]) && str[i] != sep) // Cambiar por ft_isprint
+		if(!currentWord && ft_isprint(str[i]) && str[i] != sep) 
 		{
 			words++;
 			currentWord = 1;
@@ -51,10 +50,12 @@ char	**ft_split(const char *s, char c)
 	i = 0;
 	while (i < words)
 	{
+		j = 0;
+		while (*s == c)
+			s++;
 		array[i] =(char *) malloc(wordLen(s, c) * sizeof(char));
 		if(array[i] == NULL)
 			return (NULL);
-		j = 0;
 		while (j < wordLen(s, c))
 		{
 			array[i][j] = s[j];
@@ -67,7 +68,7 @@ char	**ft_split(const char *s, char c)
 	return (array);
 }
 
-void	test_split(char **arr)
+/*void	test_split(char **arr)
 {
 	int	i;
 
@@ -115,4 +116,4 @@ int	main(void)
 
 
 	return (0);
-}
+}*/
