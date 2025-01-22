@@ -4,13 +4,13 @@ CC = cc
 
 FLAGS = -Wall -Wextra -Werror -I./../ -g
 
-SRC = test.c
+SRC = test.c test_mem.c test_str.c
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c
+%.o: %.c test.h
 		$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
