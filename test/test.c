@@ -16,6 +16,50 @@
 
 
 
+void	split_unit_test(char **arr)
+{
+	int	i;
+
+	i = 0;
+
+	while (arr[i])
+	{
+		printf("%s\n", arr[i]);
+		i++;
+	}
+	printf("-----------\n");
+}
+
+void	split_tests(void)
+{
+
+	const char	str1[] = "Hola que tal";
+	const char	str2[] = " Hola que tal";
+	const char	str3[] = "Hola que  tal";
+	const char	str4[] = "Hola que tal  ";
+	const char	str5[] = "";
+
+	char	sep = ' ';
+	char	**arr1;
+	arr1 = ft_split(str1, sep);
+	split_unit_test(arr1);
+
+	char	**arr2;
+	arr2 = ft_split(str2, sep);
+	split_unit_test(arr2);
+
+	char	**arr3;
+	arr3 = ft_split(str3, sep);
+	split_unit_test(arr3);
+
+	char	**arr4;
+	arr4 = ft_split(str4, sep);
+	split_unit_test(arr4);
+
+	char	**arr5;
+	arr5 = ft_split(str5, sep);
+	split_unit_test(arr5);
+}
 
 void	atoi_tests()
 {
@@ -57,5 +101,6 @@ int	main(void)
 	str_tests();
 	mem_tests();
 	atoi_tests();
+	split_tests();
 	return (0);
 }

@@ -1,5 +1,10 @@
 #ifndef TEST_H
 # define TEST_H
+
+# define RESET "\033[0m"
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+
 # include "../libft.h"
 # include <stdio.h>
 # include <ctype.h>
