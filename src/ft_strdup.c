@@ -2,6 +2,8 @@
 
 /*
  * Duplicate a string saving dinamic memory
+ *
+ * @returns A pointer to the string created
  */ 
 
 char	*ft_strdup(const char *s)
@@ -23,12 +25,3 @@ char	*ft_strdup(const char *s)
 	}
 	return (str);
 }
-
-/*int	main(void)
-{
-	char	*str2;
-
-	str2 = ft_strdup("Hola pepsicola");
-	printf(str2);
-}*/
-

@@ -37,8 +37,26 @@
 }
 */
 
+/**
+ * We will use memcmp to compare the original calloc with the custom
+ * @params nmemb is the number of elements and size are the bytes
+ * memcmp compare n bytes, so dont surpass the bytes 
+ */
+void	calloc_unit_test(size_t nmemb, size_t size)
+{
+	void	*s1;
+	void	*s2;
+
+	if (memcmp(s1 = calloc(nmemb, size), s2 = ft_calloc(nmemb, size), nmemb * size))
+		printf(RED "Error in calloc for array of %li items, size: %li\n" RESET, nmemb, size);
+	else
+		printf(GREEN "OK " RESET);
+}
+
+
+
 /*
- * Tests for memchr(), memset()
+ * Tests for memchr(), memset(), calloc()
  */
 
 void	mem_tests(void)
@@ -47,4 +65,12 @@ void	mem_tests(void)
 	//char s1[] = "Hola"; // No es aconsejable usar strings literales, por eso guardamos.
 	//memset_unit_test(s1, 'x', 5); // Llenar de 0 la memoria que esta ocupada con "hola\0"
 	//memset_unit_test();
+
+	printf("calloc test: ");
+	calloc_unit_test(4, 1);
+	calloc_unit_test(5, 2);
+	calloc_unit_test(0, 0);
+	calloc_unit_test(2, 4);
+
+	printf("\n");
 }
