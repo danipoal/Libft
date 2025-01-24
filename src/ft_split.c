@@ -53,7 +53,7 @@ char	**ft_split(const char *s, char c)
 		j = 0;
 		while (*s == c)
 			s++;
-		array[i] =(char *) malloc(wordLen(s, c) * sizeof(char));
+		array[i] =(char *) malloc((wordLen(s, c) + 1)* sizeof(char));
 		if(array[i] == NULL)
 			return (NULL);
 		while (j < wordLen(s, c))
@@ -61,6 +61,7 @@ char	**ft_split(const char *s, char c)
 			array[i][j] = s[j];
 			j++;
 		}
+		array[i][j] = '\0';
 		s += wordLen(s, c) + 1;
 		i++;
 	}

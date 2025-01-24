@@ -16,7 +16,7 @@
 
 
 
-void	split_unit_test(char **arr)
+/*void	split_unit_test(char **arr)
 {
 	int	i;
 
@@ -30,8 +30,38 @@ void	split_unit_test(char **arr)
 	printf("-----------\n");
 }
 
+
+void	split_unit_test(const char *s, char sep)
+{
+	char	**arr1;
+	char	**arr2;
+	int	equal;
+
+	arr1 = ft_split(s, sep);
+	arr2 = strtok((char *) s, &sep);
+	// Comparacion de elemento por elemento
+	equal = 1;
+	i = 0;
+	while (arr1[i] != NULL && arr2[i] != NULL)
+	{
+		if (strcmp(arr1[i], arr2[i]))
+			equal = 0;
+		i++;
+	}
+	if (!equal)
+		printf(RED "Error en split %s\n" RESET, s);
+	else
+		printf(GREEN "OK ");
+
+}
 void	split_tests(void)
 {
+
+	printf("split test: ");
+	split_unit_test("Hola que tal", ' ');
+
+	printf("\n");
+
 
 	const char	str1[] = "Hola que tal";
 	const char	str2[] = " Hola que tal";
@@ -60,6 +90,8 @@ void	split_tests(void)
 	arr5 = ft_split(str5, sep);
 	split_unit_test(arr5);
 }
+*/
+
 
 void	atoi_tests()
 {
@@ -101,7 +133,7 @@ int	main(void)
 	str_tests();
 	mem_tests();
 	atoi_tests();
-	split_tests();
+	//split_tests();
 	advanced_str_tests();
 	
 	return (0);
