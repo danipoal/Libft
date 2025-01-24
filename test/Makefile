@@ -4,7 +4,7 @@ CC = cc
 
 FLAGS = -Wall -Wextra -Werror -I./../ -g
 
-SRC = test.c test_mem.c test_str.c
+SRC = test.c test_mem.c test_str.c test_advancedStr.c
 
 OBJ = $(SRC:.c=.o)
 

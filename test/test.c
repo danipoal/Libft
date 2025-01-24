@@ -102,5 +102,7 @@ int	main(void)
 	mem_tests();
 	atoi_tests();
 	split_tests();
+	advanced_str_tests();
+	
 	return (0);
 }
