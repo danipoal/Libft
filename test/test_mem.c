@@ -37,6 +37,31 @@
 }
 */
 
+void	memcmp_unit_test(const char *s1, const char *s2, size_t size)
+{
+	int	o;
+	int	c;
+
+	o = memcmp(s1, s2, size); 
+	c = ft_memcmp(s1, s2, size); 
+	if (o != c)
+		printf(RED "Error in memcmp for '%s' -- '%s'. Results originial: %i Custom : %i\n" RESET, s1, s2, o, c);
+	else
+		printf(GREEN "OK " RESET);
+}
+
+void	memmove_unit_test(const void *src, size_t n)
+{
+	char	dst1[100];
+	char	dst2[100];
+
+	if (memcmp(memmove(dst1, src, n), ft_memmove(dst2, src, n), n))
+		printf(RED "Error in memmove for '%p' -- %li. Results originial: '%s' Custom : '%s'\n" RESET, src, n, dst1, dst2);
+	else
+		printf(GREEN "OK " RESET);
+}
+
+
 /**
  * We will use memcmp to compare the original calloc with the custom
  * @params nmemb is the number of elements and size are the bytes
@@ -54,7 +79,6 @@ void	calloc_unit_test(size_t nmemb, size_t size)
 }
 
 
-
 /*
  * Tests for memchr(), memset(), calloc()
  */
@@ -65,6 +89,19 @@ void	mem_tests(void)
 	//char s1[] = "Hola"; // No es aconsejable usar strings literales, por eso guardamos.
 	//memset_unit_test(s1, 'x', 5); // Llenar de 0 la memoria que esta ocupada con "hola\0"
 	//memset_unit_test();
+
+	printf("memcmp test: ");
+	memcmp_unit_test("fdsfasd", "sdd", 4); 
+	memcmp_unit_test("a", "a", 1); 
+	memcmp_unit_test("", "", 1);
+	memcmp_unit_test("aaaa", "aaac", 4); 
+	printf("\n");
+
+	printf("memmove test: ");
+	memmove_unit_test("a", 1);
+	memmove_unit_test("asd", 1);
+	memmove_unit_test("asdada", 4);
+	printf("\n");
 
 	printf("calloc test: ");
 	calloc_unit_test(4, 1);
