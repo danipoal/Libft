@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:49:13 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/17 15:45:30 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/26 19:17:23 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,25 @@ void	atoi_tests()
 }
 
 
+void	itoa_unit_test(int n, char *res)
+{
+	char	*str;
+
+	if (strcmp(str = ft_itoa(n), res))
+		printf(RED "Itoa error. Orig: '%s' ft: '%s'\n" RESET, res, str);
+	else
+		printf(GREEN "OK " RESET);
+}
+
+void itoa_tests()
+{
+	printf("itoa tests: ");
+	itoa_unit_test(2323, "2323");
+	itoa_unit_test(0, "0");
+	itoa_unit_test(222222, "222222");
+	itoa_unit_test(234, "234");
+	printf("\n");
+}
 
 
 int	main(void)
@@ -133,6 +152,7 @@ int	main(void)
 	str_tests();
 	mem_tests();
 	atoi_tests();
+	itoa_tests();
 	//split_tests();
 	advanced_str_tests();
 	
