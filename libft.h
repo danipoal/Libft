@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 18:52:59 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/26 19:08:49 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/26 19:48:04 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_itoa(int n);
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char	**ft_split(const char *s, char c);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memset(void *s, int c, size_t n);

@@ -26,4 +26,8 @@ void	advanced_str_tests(void);
 // Memory tests
 void	memset_unit_test(void * s, int c, size_t n);
 void	mem_tests(void);
+
+//
+void	param_func_tests();
+
 #endif

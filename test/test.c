@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:49:13 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/26 19:17:23 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/26 20:42:38 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,35 +92,29 @@ void	split_tests(void)
 }
 */
 
+void	atoi_unit_test(char *nbr)
+{
+	int	o;
+	int	ft;
 
+	if ((o = atoi(nbr)) != (ft = ft_atoi(nbr)))
+		printf(RED "Error in atoi. Orig: '%i' ft: '%i'" RESET, o, ft);
+	else
+		printf(GREEN "OK " RESET);
+
+}
 void	atoi_tests()
 {
-	char	str[17];
-
-	strcpy(str,"   -+--+32424f34");
-	if (atoi(str) != ft_atoi(str))
-		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
-	strcpy(str," -a");
-	if (atoi(str) != ft_atoi(str))
-		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
-	strcpy(str, "22");
-	if (atoi(str) != ft_atoi(str))
-		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
-	strcpy(str, "32525253");
-	if (atoi(str) != ft_atoi(str))
-		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
-	strcpy(str, "fd");
-	if (atoi(str) != ft_atoi(str))
-		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
-	strcpy(str, "");
-	if (atoi(str) != ft_atoi(str))
-		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
-	strcpy(str,"   34");
-	if (atoi(str) != ft_atoi(str))
-		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
-	strcpy(str,"---34");
-	if (atoi(str) != ft_atoi(str))
-		printf("Err atoi for %s orig: %i ft: %i\n", str, atoi(str), ft_atoi(str));
+	printf("atoi tests: ");
+	atoi_unit_test("   -+--+32424f34");
+	atoi_unit_test(" -a");
+	atoi_unit_test("22");
+	atoi_unit_test("32525253");
+	atoi_unit_test("fd");
+	atoi_unit_test("");
+	atoi_unit_test("   34");
+	atoi_unit_test("---34");
+	printf("\n");
 }
 
 
@@ -155,6 +149,7 @@ int	main(void)
 	itoa_tests();
 	//split_tests();
 	advanced_str_tests();
-	
+	param_func_tests();
+
 	return (0);
 }
