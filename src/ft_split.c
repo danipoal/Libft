@@ -1,7 +1,18 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/26 13:01:15 by danalvar          #+#    #+#             */
+/*   Updated: 2025/01/26 13:21:28 by danalvar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
-int	wordLen(const char *str, char sep)
+static int	word_len(const char *str, char sep)
 {
 	int	i;
 
@@ -11,25 +22,24 @@ int	wordLen(const char *str, char sep)
 	return (i);
 }
 
-
-int	countWords(const char* str, char sep)
+static int	count_words(const char *str, char sep)
 {
 	int	i;
 	int	words;
-	int 	currentWord;
+	int	current_word;
 
 	i = 0;
 	words = 0;
-	currentWord = 0;
+	current_word = 0;
 	while (str[i] != '\0')
 	{
-		if(!currentWord && ft_isprint(str[i]) && str[i] != sep) 
+		if (!current_word && ft_isprint(str[i]) && str[i] != sep)
 		{
 			words++;
-			currentWord = 1;
+			current_word = 1;
 		}
-		if(currentWord && str[i] == sep)
-			currentWord = 0;
+		if (current_word && str[i] == sep)
+			current_word = 0;
 		i++;
 	}
 	return (words);
@@ -37,13 +47,12 @@ int	countWords(const char* str, char sep)
 
 char	**ft_split(const char *s, char c)
 {
-	// Primero reservar memoria para el array
+	int		words;
+	int		i;
+	int		j;
 	char	**array;
-	int	words;
-	int	i;
-	int	j;
 
-	words = countWords(s, c);
+	words = count_words(s, c);
 	array = (char **) malloc((words + 1) * sizeof(char *));
 	if (array == NULL)
 		return (NULL);
@@ -53,16 +62,16 @@ char	**ft_split(const char *s, char c)
 		j = 0;
 		while (*s == c)
 			s++;
-		array[i] =(char *) malloc((wordLen(s, c) + 1)* sizeof(char));
-		if(array[i] == NULL)
+		array[i] = (char *) malloc((word_len(s, c) + 1) * sizeof(char));
+		if (array[i] == NULL)
 			return (NULL);
-		while (j < wordLen(s, c))
+		while (j < word_len(s, c))
 		{
 			array[i][j] = s[j];
 			j++;
 		}
 		array[i][j] = '\0';
-		s += wordLen(s, c) + 1;
+		s += word_len(s, c) + 1;
 		i++;
 	}
 	array[i] = NULL;

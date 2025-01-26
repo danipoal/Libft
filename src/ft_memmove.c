@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/26 12:45:46 by danalvar          #+#    #+#             */
+/*   Updated: 2025/01/26 12:47:58 by danalvar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -6,6 +18,9 @@
  * into a temporary array that does not overlap src  or  dest,  and  the bytes 
  * are then copied from the temporary array to dest.
  *
+ * In order to dont use malloc, instead of creating a temp array, if it overlaps
+ * we will start copying from end to begining
+ * 
  * @returns A pointer to dest
  */
 
