@@ -39,8 +39,47 @@ void	strjoin_tests()
 	printf("\n");
 }
 
+void	substr_unit_test(const char *s, unsigned int start, size_t len, char *result)
+{
+	char	*str;
+
+	if (strcmp(str = ft_substr(s, start, len), result))
+		printf(RED "Substr error Orig: '%s' cust: '%s'\n" RESET, result, str);
+	else
+		printf(GREEN "OK " RESET);
+}
+
+void	substr_tests()
+{
+
+	printf("strjoin test:");
+	substr_unit_test("Hola", 2, 2, "la");
+	substr_unit_test("Pepsi", 3, 2, "si");
+	substr_unit_test(" ", 0, 1, " ");
+	printf("\n");
+}
+
+void	strtrim_unit_test(const char *s1, const char *set)
+{
+	printf("Len = %i\n", ft_strtrim(s1, set));
+
+}
+
+void	strtrim_tests()
+{
+	printf("strtrim test:");
+	strtrim_unit_test("Hola", "la");
+	strtrim_unit_test("Hola", "Ho");
+	strtrim_unit_test("Hola", "oH");
+	strtrim_unit_test("JjojsJj", "Jj");
+	printf("\n");
+}
+
+
 void	advanced_str_tests(void)
 {
 	strdup_tests();
 	strjoin_tests();
+	substr_tests();
+	strtrim_tests();
 }
