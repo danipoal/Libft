@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 18:44:44 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/27 16:47:37 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/27 17:12:46 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ char	*ft_itoa(int n)
 	int		dec;
 	char	*str;
 
-
 	if (n == INT_MIN)
 		return (ft_strdup("-2147483648"));
 	len = num_length(n);
@@ -64,10 +63,9 @@ char	*ft_itoa(int n)
 		dec *= 10;
 	while (i < len)
 	{
-		
 		str[i] = n / dec + '0';
 		n -= n / dec * dec;
-		dec /= 10; 
+		dec /= 10;
 		i++;
 	}
 	str[i] = '\0';
