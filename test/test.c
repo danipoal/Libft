@@ -6,91 +6,53 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:49:13 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/27 16:48:48 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:54:50 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define _DEFAULT_SOURCE
-
 #include "test.h"
 
 
-
-/*void	split_unit_test(char **arr)
+void	split_unit_test(const char *s, char sep, char **res)
 {
+	char	**arr;
+	int	is_ok;
 	int	i;
 
+	is_ok = 1;
 	i = 0;
-
+	arr = ft_split(s, sep);
 	while (arr[i])
 	{
-		printf("%s\n", arr[i]);
+		if (strcmp(arr[i], res[i]))
+			is_ok = 0;
 		i++;
 	}
-	printf("-----------\n");
-}
-
-
-void	split_unit_test(const char *s, char sep)
-{
-	char	**arr1;
-	char	**arr2;
-	int	equal;
-
-	arr1 = ft_split(s, sep);
-	arr2 = strtok((char *) s, &sep);
-	// Comparacion de elemento por elemento
-	equal = 1;
-	i = 0;
-	while (arr1[i] != NULL && arr2[i] != NULL)
-	{
-		if (strcmp(arr1[i], arr2[i]))
-			equal = 0;
-		i++;
-	}
-	if (!equal)
-		printf(RED "Error en split %s\n" RESET, s);
+	if (is_ok)
+		printf(GREEN "OK " RESET);
 	else
-		printf(GREEN "OK ");
-
+		{
+			i = 0;
+			printf(RED "Error en split for: \n");
+			while (arr[i] && res[i])
+				{
+					printf(RED "%d - ft: '%s' Orig: '%s'\n" RESET, i, arr[i], res[i]);
+					i++;
+				}
+		}
 }
 void	split_tests(void)
 {
-
 	printf("split test: ");
-	split_unit_test("Hola que tal", ' ');
-
-	printf("\n");
-
 
 	const char	str1[] = "Hola que tal";
-	const char	str2[] = " Hola que tal";
-	const char	str3[] = "Hola que  tal";
-	const char	str4[] = "Hola que tal  ";
-	const char	str5[] = "";
+	char	*res1[] = {"Hola", "que", "tal"};
+	split_unit_test(str1, ' ', res1);
 
-	char	sep = ' ';
-	char	**arr1;
-	arr1 = ft_split(str1, sep);
-	split_unit_test(arr1);
-
-	char	**arr2;
-	arr2 = ft_split(str2, sep);
-	split_unit_test(arr2);
-
-	char	**arr3;
-	arr3 = ft_split(str3, sep);
-	split_unit_test(arr3);
-
-	char	**arr4;
-	arr4 = ft_split(str4, sep);
-	split_unit_test(arr4);
-
-	char	**arr5;
-	arr5 = ft_split(str5, sep);
-	split_unit_test(arr5);
+	printf("\n");
 }
-*/
+
 
 void	atoi_unit_test(char *nbr)
 {
@@ -147,7 +109,7 @@ int	main(void)
 	mem_tests();
 	atoi_tests();
 	itoa_tests();
-	//split_tests();
+	split_tests();
 	advanced_str_tests();
 	param_func_tests();
 
