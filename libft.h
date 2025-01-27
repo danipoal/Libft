@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 18:52:59 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/26 19:48:04 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:44:36 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stddef.h>
 # include <stdlib.h>
+# include <limits.h>
 
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);

@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 18:44:44 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/26 19:21:51 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:47:37 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,19 @@
 /*
  * Get the length of the number dividing it by base 10. Starting by 1 because
  * it always will fit at least 1 space
+ *
+ * If it is negative, sum an adicional number and recalculate the absolute val
  */
 static int	num_length(int n)
 {
 	int	i;
 
 	i = 1;
+	if (n < 0)
+	{
+		n = n * -1;
+		i++;
+	}
 	while (n >= 10)
 	{
 		n /= 10;
@@ -35,17 +42,34 @@ static int	num_length(int n)
 char	*ft_itoa(int n)
 {
 	int		len;
+	int		i;
+	int		dec;
 	char	*str;
 
+
+	if (n == INT_MIN)
+		return (ft_strdup("-2147483648"));
 	len = num_length(n);
 	str = (char *) malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
-	str[len] = '\0';
-	while (len-- > 0)
+	i = 0;
+	if (n < 0)
 	{
-		str[len] = n % 10 + '0';
-		n /= 10;
+		str[i++] = '-';
+		n *= -1;
 	}
+	dec = 1;
+	while (n / dec >= 10)
+		dec *= 10;
+	while (i < len)
+	{
+		
+		str[i] = n / dec + '0';
+		n -= n / dec * dec;
+		dec /= 10; 
+		i++;
+	}
+	str[i] = '\0';
 	return (str);
 }

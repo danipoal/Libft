@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:49:13 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/26 20:42:38 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:48:48 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,10 +131,10 @@ void	itoa_unit_test(int n, char *res)
 void itoa_tests()
 {
 	printf("itoa tests: ");
+	itoa_unit_test(-234, "-234");
 	itoa_unit_test(2323, "2323");
 	itoa_unit_test(0, "0");
-	itoa_unit_test(222222, "222222");
-	itoa_unit_test(234, "234");
+	itoa_unit_test(INT_MIN, "-2147483648");
 	printf("\n");
 }
 
