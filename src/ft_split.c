@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 13:01:15 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/26 13:21:28 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:55:16 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,7 @@ char	**ft_split(const char *s, char c)
 		array[i] = (char *) malloc((word_len(s, c) + 1) * sizeof(char));
 		if (array[i] == NULL)
 			return (NULL);
-		while (j < word_len(s, c))
-		{
-			array[i][j] = s[j];
-			j++;
-		}
-		array[i][j] = '\0';
+		ft_strlcpy(array[i], s, word_len(s, c));
 		s += word_len(s, c) + 1;
 		i++;
 	}

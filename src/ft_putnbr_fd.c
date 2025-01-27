@@ -6,15 +6,15 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 18:24:16 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/27 18:36:57 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:41:29 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../libft.h"
+#include "../libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int	dec;
+	int		dec;
 	char	c;
 
 	dec = 1;
@@ -26,5 +26,5 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd(c, fd);
 		n -= n / dec * dec;
 		dec /= 10;
-	}	
+	}
 }

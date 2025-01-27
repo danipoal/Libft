@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 18:44:44 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/27 17:12:46 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:04:47 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,31 @@ static int	num_length(int n)
 	return (i);
 }
 
+static char	*fill_number(char *str, int n, int len, int i)
+{
+	int	dec;
+
+	dec = 1;
+	while (n / dec >= 10)
+		dec *= 10;
+	while (i < len)
+	{
+		str[i] = n / dec + '0';
+		n -= n / dec * dec;
+		dec /= 10;
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
 /**
  * Converts an integer to a char number
  */
 char	*ft_itoa(int n)
 {
-	int		len;
 	int		i;
-	int		dec;
+	int		len;
 	char	*str;
 
 	if (n == INT_MIN)
@@ -58,16 +75,6 @@ char	*ft_itoa(int n)
 		str[i++] = '-';
 		n *= -1;
 	}
-	dec = 1;
-	while (n / dec >= 10)
-		dec *= 10;
-	while (i < len)
-	{
-		str[i] = n / dec + '0';
-		n -= n / dec * dec;
-		dec /= 10;
-		i++;
-	}
-	str[i] = '\0';
+	fill_number(str, n, len, i);
 	return (str);
 }
