@@ -6,7 +6,7 @@
 // Funcion de prueba para pasarle al mapi
 char	strmapi_function(unsigned int index, char s)
 {
-	if (index >= 0)
+	if (index <= 10000)
 		s++;
 	return (s);
 }
