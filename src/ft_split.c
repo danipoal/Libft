@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 13:01:15 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/27 19:54:11 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/28 19:08:32 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ static int	count_words(const char *str, char sep)
 	return (words);
 }
 
+void	free_split(char **array, int current)
+{
+	while (current >= 0)
+		free(array[current--]);
+	free(array);
+}
+
 char	**ft_split(const char *s, char c)
 {
 	int		words;
@@ -62,7 +69,10 @@ char	**ft_split(const char *s, char c)
 			s++;
 		array[i] = (char *) malloc((word_len(s, c) + 1) * sizeof(char));
 		if (array[i] == NULL)
+		{
+			free_split(array, i);
 			return (NULL);
+		}
 		ft_strlcpy(array[i], s, word_len(s, c) + 1);
 		s += word_len(s, c) + 1;
 		i++;

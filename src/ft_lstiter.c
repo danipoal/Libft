@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 12:48:36 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/28 21:37:34 by danalvar         ###   ########.fr       */
+/*   Created: 2025/01/28 20:22:27 by danalvar          #+#    #+#             */
+/*   Updated: 2025/01/28 20:26:53 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
 /**
- * Create dinamic memory and initialize it with 0s
- *
- * Unsigned char is used to interact with elemts byte by byte
- *
- * @param nmemb An array of the number of elements to save
- * @param size The byte size of the elemets
+ * Iterate over the list 'lst' and apply the function 'f' to the content of all
+ * elements.
  *
  */
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t			i;
-	unsigned char	*s;
-
-	s = (unsigned char *) malloc(nmemb * size);
-	if (!s)
-		return (NULL);
-	i = 0;
-	while (i++ < nmemb)
-		s[i] = 0;
-	return ((void *)s);
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

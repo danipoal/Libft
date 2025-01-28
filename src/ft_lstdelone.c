@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 12:48:36 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/28 21:37:34 by danalvar         ###   ########.fr       */
+/*   Created: 2025/01/28 19:25:35 by danalvar          #+#    #+#             */
+/*   Updated: 2025/01/28 21:34:34 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
 /**
- * Create dinamic memory and initialize it with 0s
- *
- * Unsigned char is used to interact with elemts byte by byte
- *
- * @param nmemb An array of the number of elements to save
- * @param size The byte size of the elemets
- *
+ * Free the memory of the element passed as parameter using the 'del' function 
+ * then free(3). The memory of 'next' must not be freed.
  */
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	size_t			i;
-	unsigned char	*s;
-
-	s = (unsigned char *) malloc(nmemb * size);
-	if (!s)
-		return (NULL);
-	i = 0;
-	while (i++ < nmemb)
-		s[i] = 0;
-	return ((void *)s);
+	del(lst->content);
+	free(lst);
 }
