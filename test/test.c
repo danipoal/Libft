@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:49:13 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/27 19:54:50 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/28 17:47:57 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ int	main(void)
 	split_tests();
 	advanced_str_tests();
 	param_func_tests();
+	list_tests();
 
 	return (0);
 }

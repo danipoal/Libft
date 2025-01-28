@@ -30,4 +30,6 @@ void	mem_tests(void);
 //
 void	param_func_tests();
 
+void	list_tests();
+
 #endif
