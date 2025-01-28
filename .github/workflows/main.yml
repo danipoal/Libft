@@ -28,6 +28,7 @@ jobs:
       run: |
         cd test
         make
+        make bonus
 
     # Paso 5: Ejecutar el archivo ./test y capturar la salida
     - name: Run tests and capture output
