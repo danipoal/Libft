@@ -21,14 +21,14 @@ jobs:
 
     # Paso 3: Ejecutar el Makefile inicial en el directorio raíz
     - name: Build the main project
-      run: make
-
+      run: | 
+        make
+        make bonus
     # Paso 4: Ejecutar el Makefile en el directorio /test
     - name: Build tests
       run: |
         cd test
         make
-        make bonus
 
     # Paso 5: Ejecutar el archivo ./test y capturar la salida
     - name: Run tests and capture output
