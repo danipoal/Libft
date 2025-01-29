@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:38:38 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/28 21:33:42 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/30 00:11:51 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*tmp;
 	t_list	*new_list;
 
-	if (!lst || !f || !del)
+	if (!lst || !f)
 		return (NULL);
 	new_list = NULL;
 	while (lst)

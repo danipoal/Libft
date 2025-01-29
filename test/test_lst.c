@@ -1,8 +1,24 @@
 #include "test.h"
 
+/**
+ * Esta funcion creara un nuevo contenido para la nueva lista
+ * Se necesitara hacer un malloc de lo que se quiera guardar.
+ */
+void	*ft_map(void *s)
+{
+	char	*str;
 
+	str = ft_strdup((char *) s);
+	if (!str)
+		return (NULL);
+	str[0] = *(char *) s - 1;
+	return ((void *) str);	
+}
 
-
+void	ft_del(void *s)
+{
+	free(s);
+}
 
 void	list_unit_test(char *str, char *res)
 {
@@ -24,8 +40,11 @@ void	list_global_test(t_list **lst)
 
 	node_to_check = node_to_check->next;
 	list_unit_test(node_to_check->content, "back");
-	printf("\n" RESET);
 
+	ft_lstmap(*lst, ft_map, ft_del);	// LSTMAP test
+	node_to_check = *lst;
+	list_unit_test(node_to_check->content, "a");
+	printf("\n" RESET);
 }
 
 
