@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:49:13 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/28 17:47:57 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/29 14:54:29 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,14 @@ void itoa_tests()
 	printf("\n");
 }
 
+/*
+void	putnbr_fd_tests()
+{
+	printf("putnbr test: ");
+	ft_putnbr_fd(34, 1);
+	printf("\n");
+}
+*/
 
 int	main(void)
 {
@@ -112,6 +120,7 @@ int	main(void)
 	split_tests();
 	advanced_str_tests();
 	param_func_tests();
+	//putnbr_fd_tests();
 	list_tests();
 
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:08:31 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/15 18:14:37 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/29 14:59:05 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,14 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
-	int	last_coincidence;
+	size_t	len;
 
-	last_coincidence = -1;
-	i = 0;
-	while (s[i])
+	len = ft_strlen(s);
+	while (len >= 0)
 	{
-		if (s[i] == c)
-			last_coincidence = i;
-		i++;
+		if (s[len] == c)
+			return ((char *) &s[len]);
+		len--;
 	}
-	if (last_coincidence == -1)
-		return (NULL);
-	return ((char *) &s[last_coincidence]);
+	return (NULL);
 }
