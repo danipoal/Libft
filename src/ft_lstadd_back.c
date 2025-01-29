@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:35:52 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/29 15:11:23 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:00:36 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 	if (!new)
 		return ;
-	if (!lst)
+	if (*lst == NULL)
 	{
 		*lst = new;
 		return ;

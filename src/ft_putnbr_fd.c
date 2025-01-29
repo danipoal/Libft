@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 18:24:16 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/29 14:58:43 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/29 22:58:10 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int		dec;
-	char	c;
-
 	if (n == INT_MIN)
 	{
 		write(fd, "-2147483648", 11);
@@ -27,14 +24,11 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, "-", 1);
 		n *= -1;
 	}
-	dec = 1;
-	while (n / dec >= 10)
-		dec *= 10;
-	while (n > 0)
+	while (n >= 10)
 	{
-		c = n / dec + '0';
-		write(fd, &c, 1);
-		n -= n / dec * dec;
-		dec /= 10;
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
 	}
+	if (n < 10)
+		ft_putchar_fd(n % 10, fd);
 }
