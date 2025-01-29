@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:52:53 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/29 21:30:08 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/29 22:30:34 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,25 @@
  * Delete all the characters found in set, in the begining and the end until a
  * diferent character is found in the string.
  *
+ * @param - direction: 0 -> Start to end. 	1 -> End to Start
  * @retuns The resultant string
  */
 
+static int	ft_isspace_str(const char *l, int direction, int i)
+{
+	while (l[i] == ' ' || l[i] == '\f' || l[i] == '\n' || l[i] == '\r'
+		|| l[i] == '\t' || l[i] == '\v')
+	{
+		if (!direction)
+			i++;
+		else
+			i--;
+	}
+	return (i);
+}
+
 /*
- * Checks if the letter is equal to all characters in the set
+ * Checks if the letter is equal to all characters in the set iterating set.
  *
  */
 static int	is_letter_set(char let, const char *set)
@@ -40,34 +54,39 @@ static int	is_letter_set(char let, const char *set)
 
 /*
  * Checks the set for all the string, in the begining and in the final
+ * Counts if the set is found until a different let is found. Also counts
+ * the isspace char before a nonset let is found. 
  *
  * @param - direction: 0 -> Start to end. 	1 -> End to Start
+ *
  * @returns The quantity of the letters suposed to be removed
+ * 	    l_t = letters_trimed
  */
 static int	check_length(const char *s1, char const *set, int direction)
 {
 	int	isset;
 	int	i;
-	int	length_trimed;
+	int	l_t;
 
-	length_trimed = 0;
 	isset = 1;
-	if (!direction)
-		i = 0;
-	else
-		i = ft_strlen(s1) - 1;
+	i = ft_isspace_str(s1, 0, 0);
+	l_t = i;
+	if (direction)
+	{
+		i = ft_isspace_str(s1, 1, ft_strlen(s1) - 1);
+		l_t = ft_strlen(s1) - ft_isspace_str(s1, 1, ft_strlen(s1) - 1);
+	}
 	while (i >= 0 && s1[i] && isset)
 	{
 		if (is_letter_set(s1[i], set))
-			length_trimed ++;
+			l_t ++;
 		else
 			isset = 0;
+		i--;
 		if (!direction)
-			i++;
-		else
-			i--;
+			i += 2;
 	}
-	return (length_trimed);
+	return (l_t);
 }
 
 /*
@@ -86,7 +105,8 @@ static char	*fillstr(char *dest, const char *src, const char *set, size_t t_end)
 	isset = 1;
 	dest_index = 0;
 	len = ft_strlen(src);
-	while (src[i] && i < len - t_end)
+	src += ft_isspace_str(src, 0, 0);
+	while (src[i] && i < len - t_end + 1)
 	{
 		if (!is_letter_set(src[i], set))
 			isset = 0;
