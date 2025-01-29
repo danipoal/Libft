@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:48:36 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/29 14:29:10 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/29 21:23:46 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (!s)
 		return (NULL);
 	i = 0;
-	while (i++ < nmemb)
-		s[i] = 0;
+	while (i < nmemb)
+		s[i++] = 0;
 	return ((void *)s);
 }

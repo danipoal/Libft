@@ -38,6 +38,17 @@ void	memmove_unit_test(const void *src, size_t n)
 		printf(GREEN "OK " RESET);
 }
 
+void	memmove_overlap_unit_test()
+{
+	char	s1[] = "0123456789";
+	char	s2[] = "0123456789";
+
+	if (memcmp(memmove(s1, &s1[4], 5), ft_memmove(s1, &s2[4], 5), 10))
+		printf(RED "Error memmove overlap. Orig: '%s' ft: '%s'\n"RESET , s1, s2);
+	else
+		printf(GREEN "OK " RESET);
+}
+
 void	bzero_unit_test(char *s, size_t n)
 {
 	char	*str;
@@ -64,7 +75,7 @@ void	calloc_unit_test(size_t nmemb, size_t size)
 	void	*s1;
 	void	*s2;
 
-	if (memcmp(s1 = calloc(nmemb, size), s2 = ft_calloc(nmemb, size), nmemb * size))
+	if (memcmp(s1 = calloc(nmemb, size), s2 = ft_calloc(nmemb, size), nmemb * size + 1))
 		printf(RED "Error in calloc for array of %li items, size: %li\n" RESET, nmemb, size);
 	else
 		printf(GREEN "OK " RESET);
@@ -93,13 +104,16 @@ void	mem_tests(void)
 	memcmp_unit_test("fdsfasd", "sdd", 4); 
 	memcmp_unit_test("a", "a", 1); 
 	memcmp_unit_test("", "", 1);
-	memcmp_unit_test("aaaa", "aaac", 4); 
+	memcmp_unit_test("aaaa", "a", 4); 
+	memcmp_unit_test("aa", "aaaa", 4); 
 	printf("\n");
 
 	printf("memmove test: ");
 	memmove_unit_test("a", 1);
 	memmove_unit_test("asd", 1);
 	memmove_unit_test("asdada", 4);
+	// Test con puntero overlapeado
+	memmove_overlap_unit_test();
 	printf("\n");
 
 	printf("calloc test: ");
