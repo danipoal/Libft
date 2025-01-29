@@ -1,41 +1,18 @@
 #include "test.h"
 
-// Comparar dos *stacks de memoria
-/*void	memset_unit_test(void * s, int c, size_t n)
+void	memset_unit_test(void * s, int c, size_t n, const char *res)
 {
-	int	i;
-	char	j;
-	void	*s2 = &i;
-	void	*s3 = &j;
+	char	*str;
 
-	i = 32;			// Iniciamos i a algo aleatorio
-	s2 = memcpy(s2, s, n);  // Le copiamos a i lo que viene en s para que sea lo mismo
-	j = 'a';
-	s3 = memcpy(s3, s, n);
-
-	// Comprobar valores antes de ser modificados
-	printf("Memset orig:%d ft: %d\n", *(int *) s, *(int *) s2);
-	printf("Memset orig:%c ft: %c\n", *(char *) s, *(char *) s2);
-
-	// TODO Para hacer la comparacion de memoria tiene que usarse memcmp, ya que al no
-	// 	Terminar con un '\0' hay que saber cuantos bytes comparar, y hacerlo en un
-	//	parseo apto n veces. 
-	if (*ft_memset(s2, c, n) != *memset(s, c, n))
-		printf("Error memset for int\n");
+	str = strdup(s);
+	if (!str)
+		return ;
+	str = ft_memset(str, c, n);
+	if (memcmp(str, res, n))
+		printf(RED "Error memset. Orig: '%s' ft: '%s'\n" RESET, res, str);
 	else
-		printf("Memset correct for int\n");
-	// Comprobar valores despues de ser modificados
-	printf("Memset orig:%d ft: %d\n", *(int *) s, *(int *) s2);
-	printf("Memset orig:%c ft: %c\n", *(char *) s, *(char *) s2);
-	
-	if (*ft_memset(s3, c, n) != *s)
-		printf("Error memset for char\n");
-	else
-		printf("Memset correct for char\n");
-
-	printf("Memset orig:%c ft: %c\n", *(char *) s, *(char *) s3);
+		printf(GREEN "OK " RESET);
 }
-*/
 
 void	memcmp_unit_test(const char *s1, const char *s2, size_t size)
 {
@@ -61,6 +38,21 @@ void	memmove_unit_test(const void *src, size_t n)
 		printf(GREEN "OK " RESET);
 }
 
+void	bzero_unit_test(char *s, size_t n)
+{
+	char	*str;
+	char	*res;
+
+	str = strdup(s);
+	if (!str)
+		return ;
+	ft_bzero(str, n);
+	res = calloc(n , sizeof(char));
+	if (memcmp(str, res, n))
+		printf(RED "Error bzero n:%lu Orig: '%s' ft: '%s'\n" RESET, n, res, str);
+	else
+		printf(GREEN "OK " RESET);
+}
 
 /**
  * We will use memcmp to compare the original calloc with the custom
@@ -78,17 +70,24 @@ void	calloc_unit_test(size_t nmemb, size_t size)
 		printf(GREEN "OK " RESET);
 }
 
-
 /*
  * Tests for memchr(), memset(), calloc()
  */
 
 void	mem_tests(void)
 {
-	// memset test
-	//char s1[] = "Hola"; // No es aconsejable usar strings literales, por eso guardamos.
-	//memset_unit_test(s1, 'x', 5); // Llenar de 0 la memoria que esta ocupada con "hola\0"
-	//memset_unit_test();
+	printf("bzero tests: ");
+	bzero_unit_test("Hola", 4);
+	bzero_unit_test("aaaaa", 5);
+	bzero_unit_test("a", 1);
+	printf("\n" RESET);
+
+
+	printf("memset tests: ");
+	memset_unit_test("Hola", '\0', 4, "\0\0\0\0"); // Llenar de 0 la memoria que esta ocupada con "hola\0"
+	memset_unit_test("Hola", 0, 5, "\0\0\0\0\0");
+	memset_unit_test("Hola", 'x', 4, "xxxx");
+	printf("\n" RESET);
 
 	printf("memcmp test: ");
 	memcmp_unit_test("fdsfasd", "sdd", 4); 
@@ -108,6 +107,5 @@ void	mem_tests(void)
 	calloc_unit_test(5, 2);
 	calloc_unit_test(0, 0);
 	calloc_unit_test(2, 4);
-
 	printf("\n");
 }

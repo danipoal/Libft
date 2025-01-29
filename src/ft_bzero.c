@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:38:36 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/28 21:52:39 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/29 14:18:48 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "../libft.h"
 
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t			i;
 	unsigned char	*s_ptr;

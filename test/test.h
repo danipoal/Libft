@@ -24,7 +24,7 @@ void	str_tests(void);
 void	advanced_str_tests(void);
 
 // Memory tests
-void	memset_unit_test(void * s, int c, size_t n);
+void	memset_unit_test(void * s, int c, size_t n, const char *res);
 void	mem_tests(void);
 
 //
