@@ -48,13 +48,19 @@ void	striteri_tests()
 	char s[] = "aa";
 	striteri_unit_test(s, "bb");
 	printf("\n");
-
 }
 
-
+void	fd_tests()
+{
+	printf("putnbr_fd tests: ");
+	ft_putnbr_fd(42, 1);
+	
+	printf(" Orig 42\n");
+}
 // Funciones que tengan funciones como parametros
 void	param_func_tests()
 {
 	strmapi_tests();
 	striteri_tests();
+	fd_tests();
 }

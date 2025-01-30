@@ -3,6 +3,8 @@
 /**
  * Esta funcion creara un nuevo contenido para la nueva lista
  * Se necesitara hacer un malloc de lo que se quiera guardar.
+ *
+ * Resta 1 a la primera letra del string.
  */
 void	*ft_map(void *s)
 {
@@ -45,8 +47,9 @@ void	list_global_test(t_list **lst)
 	node_to_check = node_to_check->next;
 	list_unit_test(node_to_check->content, "back");
 
-	new_list = ft_lstmap(*lst, ft_map, ft_del);	// LSTMAP test
-	list_unit_test(new_list->next->content, "a");
+	new_list = ft_lstmap(*lst, ft_map, ft_del);	// LSTMAP test -1 inicial
+	list_unit_test(new_list->content, "eront");
+	list_unit_test(new_list->next->content, "bontent");
 	printf("\n" RESET);
 }
 

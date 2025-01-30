@@ -100,6 +100,29 @@ void	strncmp_unit_test(const char *strchr1, const char *strchr2, size_t n)
 }
 
 /*
+ * b-> big string, l-> little string, n -> size to check
+ */
+void	strnstr_unit_test(const char *b, const char *l, size_t n, const char *res)
+{
+	char	*s2;
+
+	s2 = ft_strnstr(b, l, n);
+	if (!s2)
+	{
+		if (!res)	
+			printf(GREEN "OK " RESET);
+		else
+			printf(RED "Error strnstr Orig: '%s' ft: '%s'\n" RESET, res, s2);
+		return ;
+	}	
+	if (strcmp(res, s2))
+		printf(RED "Error strnstr Orig: '%s' ft: '%s'\n" RESET, res, s2);
+	else
+		printf(GREEN "OK " RESET);
+}
+
+
+/*
  * Tests for strchr(), strrchr(), strncmp()
  */
 
@@ -119,5 +142,11 @@ void	str_tests(void)
 	// STRLCPY no es estandar en C, por lo tanto se tiene q comprobar manual
 	//printf(RESET "\nstrlcpy test: ");
 	strlcpy_unit_test("Hola que tal", 10);
+	printf(RESET"\n");
+
+	printf("strnstr tests: ");
+	strnstr_unit_test("Hola que", "que", 20, "que");
+	strnstr_unit_test("Hola que", "ola", 3, "ola que");
+	strnstr_unit_test("Hola que", "ola", 1, NULL);
 	printf(RESET"\n");
 }
