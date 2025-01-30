@@ -72,11 +72,13 @@ void	strtrim_unit_test(const char *s1, const char *set, const char *res)
 void	strtrim_tests()
 {
 	printf("strtrim test:");
+	strtrim_unit_test("          ", " ", "");
 	strtrim_unit_test("Hola", "la", "Ho");
 	strtrim_unit_test("Hola", "Ho", "la");
 	strtrim_unit_test("Hola", "oH", "la");
 	strtrim_unit_test("JjojsJj", "Jj", "ojs");
 	strtrim_unit_test("lorem ipsum dolor sit amet", "l", "orem ipsum dolor sit amet");
+	
 	printf("\n");
 }
 

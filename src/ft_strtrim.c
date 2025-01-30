@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 02:40:49 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/30 03:41:10 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/30 05:29:33 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ char	*ft_strtrim(const char *s1, const char *set)
 {
 	size_t	len;
 
-	while (ft_strchr(set, *s1))
+	while (*s1 && ft_strchr(set, *s1))
 		s1++;
 	len = ft_strlen(s1);
+	if (len == 0)
+		return (ft_strdup(""));
 	while (ft_strchr(set, s1[len - 1]))
 		len--;
 	return (ft_substr(s1, 0, len));

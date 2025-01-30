@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 10:19:09 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/17 12:31:05 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/30 03:57:48 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		s_ptr[i] = c;
+		s_ptr[i] = (unsigned char)c;
 		i++;
 	}
 	return ((void *) s_ptr);

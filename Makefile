@@ -19,7 +19,7 @@ CFLAGS = -Wall -Wextra -Werror
 ifndef B
 	SCOPE = $(OBJS)
 else
-	SCOPE = $(BONUS_OBJS)
+	SCOPE = $(OBJS) $(BONUS_OBJS)
 endif
 
 
@@ -42,14 +42,13 @@ bonus:
 
 
 # Limpiar objetos, archivos .o
-.PHONY: clean
 clean:
 	rm -rf $(OBJS) $(BONUS_OBJS)
 
 # Limpiar todo
-.PHONY: fclean
 fclean: clean
 	rm -rf $(NAME)
 # Limpiar todo y volverlo a compilar
-.PHONY: re
 re: fclean all
+
+.PHONY: clean fclean re
