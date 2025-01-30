@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 13:01:15 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/28 19:08:32 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/30 06:26:20 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	free_split(char **array, int current)
 	free(array);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		words;
 	int		i;
