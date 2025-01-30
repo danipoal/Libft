@@ -145,8 +145,9 @@ void	str_tests(void)
 	printf(RESET"\n");
 
 	printf("strnstr tests: ");
+	strnstr_unit_test("lorem ipsum dolor sit amet", "dolor", 15, NULL);
 	strnstr_unit_test("Hola que", "que", 20, "que");
-	strnstr_unit_test("Hola que", "ola", 3, "ola que");
+	strnstr_unit_test("Hola que", "ola", 4, "ola que");
 	strnstr_unit_test("Hola que", "ola", 1, NULL);
 	printf(RESET"\n");
 }

@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 00:47:52 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/30 01:46:24 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/30 02:26:40 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (i < len && big[i])
 	{
 		j = 0;
-		while (little[j] && big[i + j] == little[j])
+		while (little[j] && big[i + j] == little[j] && i + j < len)
 			j++;				
 		if (!little[j])
 			return ((char *) &big[i]);
