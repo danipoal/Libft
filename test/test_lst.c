@@ -15,6 +15,9 @@ void	*ft_map(void *s)
 	return ((void *) str);	
 }
 
+/**
+ * Las funciones del siempre sirven para hacer free de las variables
+ */
 void	ft_del(void *s)
 {
 	free(s);
@@ -31,6 +34,7 @@ void	list_unit_test(char *str, char *res)
 void	list_global_test(t_list **lst)
 {
 	t_list	*node_to_check;
+	t_list	*new_list;	
 
 	printf("lst bonus tests: ");
 	node_to_check = *lst;
@@ -41,9 +45,8 @@ void	list_global_test(t_list **lst)
 	node_to_check = node_to_check->next;
 	list_unit_test(node_to_check->content, "back");
 
-	ft_lstmap(*lst, ft_map, ft_del);	// LSTMAP test
-	node_to_check = *lst;
-	list_unit_test(node_to_check->content, "a");
+	new_list = ft_lstmap(*lst, ft_map, ft_del);	// LSTMAP test
+	list_unit_test(new_list->next->content, "a");
 	printf("\n" RESET);
 }
 

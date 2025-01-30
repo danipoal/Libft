@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 18:24:16 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/29 23:05:26 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/30 00:37:20 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,6 @@ void	ft_putnbr_fd(int n, int fd)
 		n *= -1;
 	}
 	while (n >= 10)
-	{
 		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
-	}
-	if (n < 10)
-		ft_putchar_fd(n % 10 + '0', fd);
+	ft_putchar_fd(n % 10 + '0', fd);
 }
