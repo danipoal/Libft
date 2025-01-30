@@ -1,5 +1,7 @@
 NAME = libft.a
+
 FOLDER = src/
+HEAD = libft.h
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_strlen.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c \
 	ft_strncmp.c ft_strlcpy.c ft_strlcat.c ft_memchr.c ft_memset.c \
@@ -33,7 +35,7 @@ $(NAME): $(SCOPE)
 	ar rcs $(NAME) $(SCOPE)
 
 # Compilar cada archivo en .o
-%.o: %.c
+%.o: %.c $(HEAD) Makefile
 	$(CC) $(CFLAGS) -g -c $< -o $@
 
 
