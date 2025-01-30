@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:01:58 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/15 18:04:05 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/30 03:36:58 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 char	*ft_strchr(const char *s, int c)
 {
+	if (!s)
+		return (NULL);
 	while (*s != c && *s)
 		s++;
 	if (*s == c)

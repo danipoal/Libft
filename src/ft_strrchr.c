@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:08:31 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/29 15:35:03 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/30 03:37:57 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int	len;
 
+	if (!s)
+		return (NULL);
 	len = ft_strlen(s);
 	while (len >= 0)
 	{

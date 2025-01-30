@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 00:47:52 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/30 02:26:40 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/30 02:40:14 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
  * @returns A pointer to the start/coincidence of little in big.
  */
 
-
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
@@ -37,7 +36,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	{
 		j = 0;
 		while (little[j] && big[i + j] == little[j] && i + j < len)
-			j++;				
+			j++;
 		if (!little[j])
 			return ((char *) &big[i]);
 		i++;
