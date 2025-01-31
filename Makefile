@@ -53,4 +53,4 @@ fclean: clean
 # Limpiar todo y volverlo a compilar
 re: fclean all
 
-.PHONY: clean fclean re
+.PHONY: clean fclean re all bonus
