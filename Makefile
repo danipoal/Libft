@@ -49,9 +49,9 @@ clean:
 	rm -rf $(OBJS) $(BONUS_OBJS)
 
 # Limpiar todo
-fclean: clean
+f fclean: clean
 	rm -rf $(NAME)
 # Limpiar todo y volverlo a compilar
 re: fclean all
 
-.PHONY: clean fclean re
+.PHONY: clean fclean re all bonus
