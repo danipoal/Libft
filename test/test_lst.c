@@ -19,10 +19,12 @@ void	*ft_map(void *s)
 
 /**
  * Las funciones del siempre sirven para hacer free de las variables
+ * Pero comprobar existe un contetn generado con malloc
  */
 void	ft_del(void *s)
 {
-	free(s);
+	if (s)
+		free(s);
 }
 
 void	list_unit_test(char *str, char *res)
@@ -53,6 +55,19 @@ void	list_global_test(t_list **lst)
 	printf("\n" RESET);
 }
 
+void	list_global_test2(t_list **lst)
+{
+	t_list	*nod;
+
+	printf("lst bonus second tests: ");
+	nod = *lst;
+	list_unit_test(nod->content, "1");
+	list_unit_test(nod->next->content, "2");
+	list_unit_test(nod->next->next->content, "3");
+	list_unit_test(nod->next->next->next->content, "4");
+	
+	printf("\n" RESET);
+}
 
 void	list_tests()
 {
@@ -73,6 +88,18 @@ void	list_tests()
 
 	list_global_test(lst);
 
+
+	// Vaciamos la lista para volver a crearla
+	//if (lst)
+		//ft_lstclear(lst, ft_del);	// Esto pasaria ft_del si el content se ha generado con malloc
+	ft_lstclear(lst, NULL);
+	
+	lst = &tmp;
+	ft_lstadd_back(lst, ft_lstnew("1"));   // 1 elemento
+	ft_lstadd_back(lst, ft_lstnew("2"));   // 1 elemento
+	ft_lstadd_back(lst, ft_lstnew("3"));   // 1 elemento
+	ft_lstadd_back(lst, ft_lstnew("4"));   // 1 elemento
+	list_global_test2(lst);
 
 	printf("El tamano de la lista es %i", ft_lstsize(*lst));
 }

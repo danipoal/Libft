@@ -52,7 +52,7 @@ void	striteri_tests()
 
 void	fd_tests()
 {
-	printf("putnbr_fd tests: ");
+	ft_putstr_fd("putnbr_fd test: ft:", 1);
 	ft_putnbr_fd(42, 1);
 	
 	printf(" Orig 42\n");

@@ -135,7 +135,9 @@ void	str_tests(void)
 
 	printf(RESET "\nstrcmp test: ");
 	strncmp_unit_test("Hola", "Hola", 4);
+	strncmp_unit_test("Hola", "Hola", 70);
 	strncmp_unit_test("Hola   ", "Hola", 5);
+	strncmp_unit_test("Hola   ", "Hola",70 );
 	strncmp_unit_test("Holfwea", "Hfola", 4);
 
 

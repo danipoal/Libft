@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 13:00:43 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/31 12:32:08 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:50:07 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (i < len)
+	while (i < len && s[i])
 	{
 		str[i] = s[start + i];
 		i++;

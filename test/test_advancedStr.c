@@ -56,6 +56,7 @@ void	substr_tests()
 	substr_unit_test("Hola", 2, 2, "la");
 	substr_unit_test("Pepsi", 3, 2, "si");
 	substr_unit_test(" ", 0, 1, " ");
+	substr_unit_test("tripouille", 0, 42000, "tripouille");
 	printf("\n");
 }
 
