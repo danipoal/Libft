@@ -28,20 +28,15 @@ Estas funciones replican el comportamiento de funciones estándar de la bibliote
 - **Cadenas de caracteres:**
   - [**ft_strlen**](https://github.com/danipoal/Libft/blob/main/src/ft_strlen.c): Calcula la longitud de una cadena.
   - [**ft_strdup**](https://github.com/danipoal/Libft/blob/main/src/ft_strdup.c): Duplica una cadena.
-  - [**ft_strcpy**](https://github.com/danipoal/Libft/blob/main/src/ft_strcpy.c): Copia una cadena en otra.
-  - [**ft_strncpy**](https://github.com/danipoal/Libft/blob/main/src/ft_strncpy.c): Copia hasta un número específico de caracteres de una cadena.
-  - [**ft_strcat**](https://github.com/danipoal/Libft/blob/main/src/ft_strcat.c): Concatenación de cadenas.
-  - [**ft_strncat**](https://github.com/danipoal/Libft/blob/main/src/ft_strncat.c): Concatenación con un límite.
+  - [**ft_strlcpy**](https://github.com/danipoal/Libft/blob/main/src/ft_strlcpy.c): Copia hasta un número específico de caracteres de una cadena.
+  - [**ft_strlcat**](https://github.com/danipoal/Libft/blob/main/src/ft_strlcat.c): Concatenación con un límite.
   - [**ft_strchr**](https://github.com/danipoal/Libft/blob/main/src/ft_strchr.c): Encuentra un carácter en una cadena.
   - [**ft_strrchr**](https://github.com/danipoal/Libft/blob/main/src/ft_strrchr.c): Encuentra un carácter en una cadena (última aparición).
-  - [**ft_strstr**](https://github.com/danipoal/Libft/blob/main/src/ft_strstr.c): Encuentra una subcadena.
   - [**ft_strnstr**](https://github.com/danipoal/Libft/blob/main/src/ft_strnstr.c): Encuentra una subcadena limitada por un tamaño.
-  - [**ft_strcmp**](https://github.com/danipoal/Libft/blob/main/src/ft_strcmp.c): Compara dos cadenas.
   - [**ft_strncmp**](https://github.com/danipoal/Libft/blob/main/src/ft_strncmp.c): Compara cadenas hasta un número de caracteres.
 
 - **Conversión:**
   - [**ft_atoi**](https://github.com/danipoal/Libft/blob/main/src/ft_atoi.c): Convierte una cadena a un entero.
-  - [**ft_itoa**](https://github.com/danipoal/Libft/blob/main/src/ft_itoa.c): Convierte un entero a una cadena.
 
 - **Caracteres individuales:**
   - [**ft_isalpha**](https://github.com/danipoal/Libft/blob/main/src/ft_isalpha.c): Comprueba si es un carácter alfabético.
@@ -77,13 +72,13 @@ Estas funciones no son parte de la libc pero son útiles para el desarrollo:
 ## Bonus
 Se implementan funciones relacionadas con listas enlazadas:
 
-- [**ft_lstnew**](https://github.com/danipoal/Libft/blob/main/src/ft_lstnew.c): Crea un nuevo nodo.
-- [**ft_lstadd_front**](https://github.com/danipoal/Libft/blob/main/src/ft_lstadd_front.c): Añade un nodo al inicio de la lista.
-- [**ft_lstadd_back**](https://github.com/danipoal/Libft/blob/main/src/ft_lstadd_back.c): Añade un nodo al final de la lista.
-- [**ft_lstdelone**](https://github.com/danipoal/Libft/blob/main/src/ft_lstdelone.c): Elimina un nodo específico.
-- [**ft_lstclear**](https://github.com/danipoal/Libft/blob/main/src/ft_lstclear.c): Elimina todos los nodos de la lista.
-- [**ft_lstiter**](https://github.com/danipoal/Libft/blob/main/src/ft_lstiter.c): Aplica una función a cada nodo.
-- [**ft_lstmap**](https://github.com/danipoal/Libft/blob/main/src/ft_lstmap.c): Crea una nueva lista aplicando una función a cada nodo de la original.
+- [**ft_lstnew**](https://github.com/danipoal/Libft/blob/main/src/ft_lstnew_bonus.c): Crea un nuevo nodo.
+- [**ft_lstadd_front**](https://github.com/danipoal/Libft/blob/main/src/ft_lstadd_front_bonus.c): Añade un nodo al inicio de la lista.
+- [**ft_lstadd_back**](https://github.com/danipoal/Libft/blob/main/src/ft_lstadd_back_bonus.c): Añade un nodo al final de la lista.
+- [**ft_lstdelone**](https://github.com/danipoal/Libft/blob/main/src/ft_lstdelone_bonus.c): Elimina un nodo específico.
+- [**ft_lstclear**](https://github.com/danipoal/Libft/blob/main/src/ft_lstclear_bonus.c): Elimina todos los nodos de la lista.
+- [**ft_lstiter**](https://github.com/danipoal/Libft/blob/main/src/ft_lstiter_bonus.c): Aplica una función a cada nodo.
+- [**ft_lstmap**](https://github.com/danipoal/Libft/blob/main/src/ft_lstmap_bonus.c): Crea una nueva lista aplicando una función a cada nodo de la original.
 
 ---
 
@@ -92,6 +87,7 @@ Para compilar la biblioteca:
 
 ```bash
 make
+make bonus
 ```
 Esto generará un archivo `libft.a` que puedes incluir en tus proyectos con:
 
