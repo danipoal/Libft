@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 13:00:43 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/31 14:50:07 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:41:38 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
+	if (start > ft_strlen(s) - 1)
+		return (ft_strdup(""));
 	str = (char *) malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
