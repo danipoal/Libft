@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:05:26 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/15 15:07:57 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/31 17:37:18 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	size;
 
-	if (!s)
-		return (0);
 	size = 0;
 	while (s[size] != '\0')
 		size++;
