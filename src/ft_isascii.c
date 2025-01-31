@@ -6,11 +6,9 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:02:03 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/15 13:26:52 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/01/31 10:25:37 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../libft.h"
 
 /*
  * Finds if the number is in the Ascii table, 7 bit variable
