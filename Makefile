@@ -1,6 +1,5 @@
 NAME = libft.a
 
-FOLDER = src/
 HEAD = libft.h
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_strlen.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c \
@@ -14,8 +13,8 @@ BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 	ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
 	ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
-OBJS = $(addprefix $(FOLDER), $(SRCS:.c=.o))
-BONUS_OBJS = $(addprefix $(FOLDER), $(BONUS:.c=.o))
+OBJS = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
